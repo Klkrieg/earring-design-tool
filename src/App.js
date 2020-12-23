@@ -1,13 +1,25 @@
+import React from 'react';
 import './App.css';
-import {BeadGrid} from './components/BeadGrid';
+
+import {BeadGrid} from './components/GridContainer';
+import {ColorToolSection} from './components/ColorToolSection';
+
+
 const App = () => {
-  return (
+  const [color, setColor] = React.useState("#62664E");
+  
+  const handleColorChange = (event) => {
+    setColor(event.target.value);
+  }
+
+ return (
     <div className="App">
       <header className="App-header">
-        <h1>Beaded Necklace Tool</h1>
+        <h1>Maple's Maker Corner</h1>
       </header>
-      <BeadGrid />
-    </div>
+      <BeadGrid currentColor={color}/>
+      <ColorToolSection handleColorChange={handleColorChange} currentColor={color}/>
+      </div>
   );
 }
 
