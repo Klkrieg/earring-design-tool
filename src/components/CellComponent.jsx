@@ -13,14 +13,14 @@ const Cell = styled.div`
 
 export const CellComponent = (props) => {
   const [filled, setFilled] = React.useState(true);
+
   const handleClick = (event) => {
     setFilled((filled) => !filled);
     if (filled === false) {
       event.target.style.backgroundColor = "white";
     } else {
-      event.target.style.backgroundColor = props.currentColor;
+      event.target.style.backgroundColor = props.activeColor;
     }
-    console.log(filled);
   };
 
   return (

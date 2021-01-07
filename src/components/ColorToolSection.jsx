@@ -11,12 +11,34 @@ const ColorPicker = styled.input`
   width: 200px;
   height: 100px;
 `;
+const ColorPalletteContainer = styled.div`
+  width: 200px;
+  height: 500px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+`;
+const ColorPalletteItem = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  margin-top: 20px;
+  background-color: ${(props) => props.inputColor};
+`;
 
 export const ColorToolSection = (props) => {
-  
+  // const palletteItemArray = [];
+  // for (let i = 0; i < props.colorPallette; i++) {
+  //   palletteItemArray.push(
+  //     <ColorPalletteItem inputColor={props.colorPallette[i]} />
+  //   );
+  // }
+
   return (
     <ColorContainer>
-      <label htmlFor="colorTool"></label>
       <ColorPicker
         type="color"
         name="colorTool"
@@ -24,6 +46,19 @@ export const ColorToolSection = (props) => {
         onChange={props.handleColorChange}
         value={props.currentColor}
       />
+      {props.children}
+      <ColorPalletteContainer>
+        {props.colorPallette.map((el) => (
+          <ColorPalletteItem
+            onClick={() =>
+              props.handleActiveColorChange(props.colorPallette.indexOf(el))
+            }
+            inputColor={el}
+          >
+            {el}
+          </ColorPalletteItem>
+        ))}
+      </ColorPalletteContainer>
     </ColorContainer>
   );
 };
