@@ -9,20 +9,27 @@ const Row = styled.div`
   margin-bottom: -4px;
 `;
 
-export const InlineRow = React.memo((props) => {
+export const InlineRow = (props) => {
+  //inline rows line up to form solid columns
+  //not sure I need a seperate cell component
+  //Key is there...maybe dont need
+
   let cells = [];
   for (let i = 0; i < 40; i++) {
     cells.push(
       <CellComponent
-        key={Math.random() * 400}
-        id={`Cell ${i}`}
+        key={i}
+        id={i}
         activeColor={props.activeColor}
+        colorPalette={props.colorPalette}
       />
     );
   }
+
+  //using Fragment for styling..gets janky without it.
   return (
     <Fragment>
       <Row>{cells}</Row>
     </Fragment>
   );
-});
+};

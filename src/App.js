@@ -1,38 +1,36 @@
 import React from "react";
-import "./App.css";
-import styled from "styled-components";
 
 import { BeadGrid } from "./components/BeadGrid";
 import { ColorToolSection } from "./components/ColorToolSection";
 
-const Button = styled.button`
-  width: 200px;
-  font-size: 20px;
-  border: none;
-  background-color: #7ba5b5;
-  cursor: pointer;
-  display: block;
-`;
-
 const App = () => {
-  const [color, setColor] = React.useState("#62664E");
-  const [activeColor, setActiveColor] = React.useState("#62664E");
-  const [colorPallette, setColorPallette] = React.useState([]);
+  //current color in the color picker tool
+  const [color, setColor] = React.useState("#16394f");
+  //active color to fill cells
+  const [activeColorIndex, setActiveColorIndex] = React.useState(0);
+  //color palatte to reduce re-renders?
+  const [colorPalette, setColorPalette] = React.useState([]);
+  //Will eventually be used to pick bead grid layout and set palatte
   const [donePickingFormat, setDonePickingFormat] = React.useState(false);
 
-  React.useState(() => {
-    console.log(activeColor);
-  }, [activeColor]);
+  //Find a way to determine bead grid from here.
+  //40 rows of offset columns
+  //top rows = [ [], [],[]] //Each nested array is a row, each nested array contains 40 or 41 cells
+  //loop so that
+
   const handleColorChange = (event) => {
     setColor(event.target.value);
   };
-  const handleColorPalletteChange = () => {
-    setColorPallette((colorPallette) => [...colorPallette, color]);
+  const handleColorPaletteChange = () => {
+    if (colorPalette.indexOf(color) > 0) {
+      return;
+    }
+    setColorPalette((colorPalette) => [...colorPalette, color]);
   };
   const handleActiveColorChange = (index) => {
     //sets active color to the index in the color palatte of the clicked color div
     console.log(index);
-    setActiveColor(colorPallette[index]);
+    setActiveColorIndex(index);
   };
   const handleDonePickingFormat = () => {
     setDonePickingFormat(!donePickingFormat);
@@ -43,16 +41,19 @@ const App = () => {
       <header className="App-header">
         <h1>Maple's Maker Corner</h1>
       </header>
-      {donePickingFormat && <BeadGrid activeColor={activeColor} />}
+      {/* If donePickingFormat is true, render the beadGrid */}
+      {donePickingFormat && (
+        <BeadGrid colorPalette={colorPalette} activeColor={activeColorIndex} />
+      )}
       <ColorToolSection
         handleColorChange={handleColorChange}
         handleActiveColorChange={handleActiveColorChange}
-        colorPallette={colorPallette}
+        colorPalette={colorPalette}
+        activeColor={activeColorIndex}
         currentColor={color}
-      >
-        <Button onClick={handleColorPalletteChange}>Add Color!</Button>
-        <Button onClick={handleDonePickingFormat}>Done </Button>
-      </ColorToolSection>
+        handleDonePickingFormat={handleDonePickingFormat}
+        handleColorPaletteChange={handleColorPaletteChange}
+      ></ColorToolSection>
     </div>
   );
 };

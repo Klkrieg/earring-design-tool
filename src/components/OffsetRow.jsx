@@ -16,9 +16,10 @@ export const OffsetRow = (props) => {
   for (let i = 0; i < 41; i++) {
     cells.push(
       <CellComponent
-        key={Math.random() * 400}
-        id={`Cell:${i}`}
+        key={i}
+        id={i}
         activeColor={props.activeColor}
+        colorPalette={props.colorPalette}
       />
     );
   }
