@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const ColorContainer = styled.div`
   margin: 50px auto;
-  width: 15vw;
+  width: 30vw;
   min-width: 280px;
   min-height: 80vh;
   max-height: 80vh;

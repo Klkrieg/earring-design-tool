@@ -8,12 +8,13 @@ const BigBox = styled.div`
   margin-right: 50px;
   padding: 0;
   /* width: 600px; */
-  height: 2100px;
+  height: 86vh;
   /* border: 10px solid black; */
   position: absolute;
   left: 400px;
   z-index: 100000;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: scroll;
 `;
 // const Divider = styled.div`
 //   width: 100%;

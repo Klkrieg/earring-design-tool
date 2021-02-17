@@ -6,7 +6,7 @@ import { ColorToolSection } from "./ColorTools/ColorToolSection";
 
 const Header = styled.header`
   text-align: center;
-  height: 80px;
+  height: 8vh;
   color: #586b46;
   font-size: 20px;
   border-bottom: solid 2px #333;
