@@ -1,24 +1,25 @@
 import React from "react";
 import styled from "styled-components";
 
-import { InlineRow } from "./InlineRow";
-import { OffsetRow } from "./OffsetRow";
+import { InlineRow } from "./components/InlineRow";
+import { OffsetRow } from "./components/OffsetRow";
 
 const BigBox = styled.div`
   margin-right: 50px;
   padding: 0;
-  width: 600px;
+  /* width: 600px; */
   height: 2100px;
-  border: 10px solid black;
+  /* border: 10px solid black; */
   position: absolute;
   left: 400px;
   z-index: 100000;
+  overflow: hidden;
 `;
-const Divider = styled.div`
-  width: 100%;
-  height: 2px;
-  background-color: black;
-`;
+// const Divider = styled.div`
+//   width: 100%;
+//   height: 2px;
+//   background-color: black;
+// `;
 
 export const BeadGrid = (props) => {
   //rows must shift of offset to inline after 40 rows for earring design
@@ -57,7 +58,7 @@ export const BeadGrid = (props) => {
     <div>
       <BigBox>
         {topRows}
-        <Divider />
+        {/* <Divider /> */}
         {bottomRows}
       </BigBox>
     </div>

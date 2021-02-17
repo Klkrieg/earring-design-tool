@@ -1,7 +1,22 @@
 import React from "react";
+import styled from "styled-components";
 
-import { BeadGrid } from "./components/BeadGrid";
-import { ColorToolSection } from "./components/ColorToolSection";
+import { BeadGrid } from "./BeadGrid/BeadGrid";
+import { ColorToolSection } from "./ColorTools/ColorToolSection";
+
+const Header = styled.header`
+  text-align: center;
+  height: 80px;
+  color: #586b46;
+  font-size: 20px;
+  border-bottom: solid 2px #333;
+`;
+const Footer = styled.footer`
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  font-style: underline;
+`;
 
 const App = () => {
   //current color in the color picker tool
@@ -21,8 +36,8 @@ const App = () => {
   const handleColorChange = (event) => {
     setColor(event.target.value);
   };
-  const handleColorPaletteChange = () => {
-    if (colorPalette.indexOf(color) > 0) {
+  const handleColorPaletteChange = (col) => {
+    if (colorPalette.indexOf(col) > 0) {
       return;
     }
     setColorPalette((colorPalette) => [...colorPalette, color]);
@@ -38,9 +53,9 @@ const App = () => {
 
   return (
     <div className="App">
-      <header className="App-header">
+      <Header className="App-header">
         <h1>Maple's Maker Corner</h1>
-      </header>
+      </Header>
       {/* If donePickingFormat is true, render the beadGrid */}
       {donePickingFormat && (
         <BeadGrid colorPalette={colorPalette} activeColor={activeColorIndex} />
@@ -53,7 +68,9 @@ const App = () => {
         currentColor={color}
         handleDonePickingFormat={handleDonePickingFormat}
         handleColorPaletteChange={handleColorPaletteChange}
+        donePickingFormat={donePickingFormat}
       ></ColorToolSection>
+      <Footer>Karson Krieg ©2020 </Footer>
     </div>
   );
 };

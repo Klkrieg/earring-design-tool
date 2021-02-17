@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 const Cell = styled.div`
   cursor: crosshair;
-  width: 14px; //total width of 15px
-  height: 14px; //total height of 15px
+  width: 10px; //total width of 15px
+  height: 10px; //total height of 15px
   border: solid 0.5px grey;
   display: inline-block;
   margin-top: 0;
