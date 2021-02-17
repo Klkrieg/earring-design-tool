@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/earring-design-tool/static/js/main.53e7a94a.chunk.js",
-    "main.js.map": "/earring-design-tool/static/js/main.53e7a94a.chunk.js.map",
+    "main.js": "/earring-design-tool/static/js/main.a4985061.chunk.js",
+    "main.js.map": "/earring-design-tool/static/js/main.a4985061.chunk.js.map",
     "runtime-main.js": "/earring-design-tool/static/js/runtime-main.0e007211.js",
     "runtime-main.js.map": "/earring-design-tool/static/js/runtime-main.0e007211.js.map",
     "static/js/2.1d88c515.chunk.js": "/earring-design-tool/static/js/2.1d88c515.chunk.js",
@@ -12,6 +12,6 @@
   "entrypoints": [
     "static/js/runtime-main.0e007211.js",
     "static/js/2.1d88c515.chunk.js",
-    "static/js/main.53e7a94a.chunk.js"
+    "static/js/main.a4985061.chunk.js"
   ]
 }
