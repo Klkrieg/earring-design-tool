@@ -6,7 +6,7 @@ import { CellComponent } from "./CellComponent";
 const Row = styled.div`
   display: flex;
   padding: 0;
-  margin-bottom: -4px;
+  margin-bottom: -7px;
 `;
 
 export const InlineRow = (props) => {

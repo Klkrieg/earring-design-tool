@@ -6,12 +6,12 @@ import { OffsetRow } from "./components/OffsetRow";
 
 const BigBox = styled.div`
   margin-right: 50px;
-  padding: 0;
+  padding: 30px 0 0 0;
   /* width: 600px; */
   height: 86vh;
   /* border: 10px solid black; */
   position: absolute;
-  left: 400px;
+  left: 350px;
   z-index: 100000;
   overflow-x: hidden;
   overflow-y: scroll;

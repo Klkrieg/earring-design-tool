@@ -8,7 +8,7 @@ const OffRow = styled.div`
   position: relative;
   right: 7px;
   padding: 0;
-  margin-bottom: -4px;
+  margin-bottom: -7px;
 `;
 
 export const OffsetRow = (props) => {
